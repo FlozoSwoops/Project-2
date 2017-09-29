@@ -1,9 +1,26 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+const Schema = require('../db/schema.js');
+const JumpModel = Schema.JumpModel;
+
+
+
+router.get('/', (request, response) => {
+    
+    //grabing jump id
+    const jumpId = request.params.jumpId
+
+    JumpModel.find({})
+        .then((jumps) => {
+            response.render('jumps/index', {
+                jumps: jumps
+            })
+        })
+        .catch((error) => {
+            console.log(error)
+        })
+
 });
 
 module.exports = router;

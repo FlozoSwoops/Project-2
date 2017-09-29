@@ -35,7 +35,11 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
-app.use('/jumpsController', jumps);
+
+
+//controllers
+const jumpsController = require('./routes/jumpsController')
+app.use('/jumps', jumpsController)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -2,6 +2,7 @@ require('dotenv').config();
 
 //db setup
 var mongoose = require('mongoose');
+mongoose.connect(process.env.MONGODB_URI)
 
 const db = mongoose.connection;
 // error and connected messages
@@ -19,9 +20,26 @@ const Schema = require('./schema.js')
 // pull in specific schema from schema.js
 const JumpModel = Schema.JumpModel;
 
-//creating jump info
-const chileanWay = new JumpModel({jumpNumber: 89, name:'Chilean Round', jumpType:'Hybrid', exitAltitude: 14000, deployAltitude: 3500, accuracy: 7, notes: 'Zoo Dive'})
-const wingsuitRodeo = new JumpModel({jumpNumber: 99, name:'Wingsuit Rodeo', jumpType:'Wingsuit', exitAltitude: 14000 , deployAltitude: 3500, accuracy: 0, notes:'So much gnar'})
-const eclipseJump = new JumpModel({jumpNumber: 129, name:'Eclipse Jump', jumpType:'Highpull', exitAltitude: 14000, deployAltitude: 3500, accuracy: 10, notes: 'Woo Hoo'})
+JumpModel.remove({}, function (err) {
+    console.log(err);
+});
 
-const snowboards = [chileanWay, wingsuitRodeo, eclipseJump]
+//creating jump info
+const chileanWay = new JumpModel({jumpNumber: 89, jumpName:'Chilean Round', jumpType:'Hybrid', exitAltitude: 14000, deployAltitude: 3500, accuracy: 7, notes: 'Zoo Dive'})
+const wingsuitRodeo = new JumpModel({jumpNumber: 99, jumpName:'Wingsuit Rodeo', jumpType:'Wingsuit', exitAltitude: 14000 , deployAltitude: 3500, accuracy: 0, notes:'So much gnar'})
+const eclipseJump = new JumpModel({jumpNumber: 129, jumpName:'Eclipse Jump', jumpType:'Highpull', exitAltitude: 14000, deployAltitude: 3500, accuracy: 10, notes: 'Woo Hoo'})
+
+const jumps = [chileanWay, wingsuitRodeo, eclipseJump]
+
+jumps.forEach((jump) => {
+    
+    jump.save()
+        .then((jump) => {
+            console.log(`${jump.jumpName} saved!`)
+        })
+        .catch((error) => {
+            console.log(error)
+        })
+});
+
+
