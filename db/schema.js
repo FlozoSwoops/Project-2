@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 const DropzoneSchema = new Schema({
     DropzoneName: {
         type: String,
-        required: true;
+        required: true
     },
     Aircraft: {
         type: String,
@@ -38,8 +38,13 @@ const JumpSchema = new Schema ({
     jumpNumber: {
         type: Number,
         required: true,
-
     },
+
+    jumpName: {
+        type: String,
+        required: false
+    },
+
     jumpType: {
         type: String,
         require: false
@@ -74,5 +79,7 @@ const JumpModel = mongoose.model('Jump', JumpSchema)
 
 // export
 module.exports = {
+    DropzoneModel: DropzoneModel,
+    JumperModel: JumperModel,
     JumpModel: JumpModel,
 }
