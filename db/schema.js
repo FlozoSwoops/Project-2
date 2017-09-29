@@ -18,7 +18,7 @@ const DropzoneSchema = new Schema({
 
 
 })
-const JumperSchema = new schema ({
+const JumperSchema = new Schema ({
     TotalJumps: {
        type: Number,
        required: true
@@ -66,7 +66,7 @@ const JumpSchema = new Schema ({
     },
 
     notes: {
-        type: string,
+        type: String,
         required: false,
     }
 })
