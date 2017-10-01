@@ -18,21 +18,6 @@ const DropzoneSchema = new Schema({
 
 
 })
-const JumperSchema = new Schema ({
-    TotalJumps: {
-       type: Number,
-       required: true
-    },
-    Licence: {
-        type: String,
-        required: false
-    },
-    Freefall: {
-        type: Number,
-        required: true
-    }
-
-})
 
 const JumpSchema = new Schema ({
     jumpNumber: {
@@ -71,6 +56,26 @@ const JumpSchema = new Schema ({
     }
 })
 
+const JumperSchema = new Schema ({
+    name: {
+        type: String,
+        required: true,
+    },
+    totalJumps: {
+       type: Number,
+       required: true
+    },
+    licence: {
+        type: String,
+        required: false
+    },
+    freefallTime: {
+        type: Number,
+        required: true
+    },
+    jumps: [JumpSchema]
+})
+
 // create models from schema
 const DropzoneModel = mongoose.model('Dropzone', DropzoneSchema)
 const JumperModel = mongoose.model('Jumper', JumperSchema)
@@ -80,6 +85,6 @@ const JumpModel = mongoose.model('Jump', JumpSchema)
 // export
 module.exports = {
     DropzoneModel: DropzoneModel,
-    JumperModel: JumperModel,
     JumpModel: JumpModel,
+    JumperModel: JumperModel,
 }

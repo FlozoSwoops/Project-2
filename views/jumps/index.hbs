@@ -3,10 +3,12 @@
     <h1>Jumper's Logbook</h1>
 
     
-    
-        {{#each jumps}}
-        {{this.jumpname}}
-        {{/each}}
-    
+    <div>
 
+        {{#each jumps}}
+        <ul>
+       <li> {{this.jumpNumber}}  -  {{this.jumpName}}     -      {{this.exitAltitude}}  -  {{this.deployAltitude}} </li>
+        </ul>
+        {{/each}}
+    </div>
 </div>
