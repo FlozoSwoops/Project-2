@@ -1,18 +1,18 @@
 var express = require('express');
-var router = express.Router();
+var router = express.Router({ mergeParams: true });
 
 const Schema = require('../db/schema.js');
-const JumpModel = Schema.JumpModel;
+const JumperModel = Schema.JumperModel;
 
 
 
 router.get('/', (request, response) => {
     
     //grabing jump id
-    const jumpId = request.params.jumpId
+    const jumperId = request.params.jumperId
 
-    JumpModel.find({})
-        .then((jumps) => {
+    JumperModel.findById(jumperId)
+        .then((jumper) => {
             response.render('jumps/index', {
                 jumps: jumps
             })

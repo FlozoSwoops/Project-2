@@ -22,4 +22,8 @@ router.get('/', (request, response) => {
 
 });
 
+router.get('/new', (request,response) => {
+    response.render('jumpers/new')
+})
+
 module.exports = router;
