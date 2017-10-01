@@ -9,7 +9,7 @@ var mongoose = require('mongoose');
 
 var index = require('./routes/index');
 var jumps = require('./routes/jumpsController');
-
+var jumpers = require('./routes/jumpersController');
 var app = express();
 // db setup
 mongoose.connect(process.env.MONGODB_URI, {useMongoClient: true});
@@ -38,8 +38,11 @@ app.use('/', index);
 
 
 //controllers
+const jumpersController = require('./routes/jumpersController')
+app.use('/jumpers', jumpersController)
+
 const jumpsController = require('./routes/jumpsController')
-app.use('/jumps', jumpsController)
+app.use('/jumpers/:jumperId/jumps', jumpsController)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
