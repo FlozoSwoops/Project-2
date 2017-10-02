@@ -7,7 +7,7 @@ const JumperModel = Schema.JumperModel;
 
 
 router.get('/', (request, response) => {
-    
+
     //grabing jump id
     const jumperId = request.params.jumperId
 
@@ -37,7 +37,7 @@ router.post('/', (request, response) => {
     const newJump = request.body
 
     JumperModel.findById(jumperId)
-        .then ((jumper) =>{
+        .then((jumper) => {
             jumper.jumps.push(newJump)
             return jumper.save
         })
@@ -47,35 +47,56 @@ router.post('/', (request, response) => {
 })
 
 //edit
-router.get('/:snowboardId/edit', (request, response) => {
-    
-        const jumperId = request.params.jumperId
-    
-        const snowboardId = request.params.snowboardId
-    
-        JumperModel.findById(jumperId)
-            .then((jumper) => {
-                const snowboard = jumper.jumps.id(snowboardId)
-    
-                response.render('jumps/edit', {
-                    jump: snowboard,
-                    jumperId: jumperId
-                })
+router.get('/:jumpId/edit', (request, response) => {
+
+    const jumperId = request.params.jumperId
+    const jumpId = request.params.jumpId
+
+    JumperModel.findById(jumperId)
+        .then((jumper) => {
+            const jump = jumper.jumps.id(jumpId)
+
+            response.render('jumps/edit', {
+                jump: jump,
+                jumperId: jumperId
             })
-            .catch((error) => {
-                console.log(error)
-            })
-    })
+        })
+        .catch((error) => {
+            console.log(error)
+        })
+})
+
+//update
+router.put('/:jumpId', (request, response) => {
+
+    const jumperId = request.params.jumperId
+    const jumpId = request.params.jumpId
+    const updatedJump = request.body
+
+    JumperModel.findById(jumperId)
+        .then((jumper) => {
+            const jump = jumper.jumps.id(jumpId)
+
+            jump.name = updatedjump.name
+            jump.price = updatedjump.price
+
+            return jumper.save()
+        })
+        .then(() => {
+            response.redirect(`/jumpers/${jumperId}/jumps/${jumpId}`)
+        })
+
+})
 
 //show route
 router.get('/:jumpId', (request, response) => {
     const jumperId = request.params.jumperId
     const jumpId = request.params.jumpId
-    
+
     JumperModel.findById(jumperId)
         .then((jumper) => {
             const jump = jumper.jumps.id(jumpId)
-            response.render('jumps/show',{
+            response.render('jumps/show', {
                 jump: jump,
                 jumperId: jumperId,
             })
