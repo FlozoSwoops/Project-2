@@ -2,12 +2,14 @@
 
     <h1>{{jumper.name}}'s Logbook</h1>
 
-    
+
     <div>
 
         {{#each jumper.jumps}}
         <ul>
-       <li> {{this.jumpNumber}}  -  {{this.jumpName}}     -      {{this.exitAltitude}}  -  {{this.deployAltitude}} </li>
+            <li> {{this.jumpNumber}} - {{this.jumpName}} - {{this.exitAltitude}} - {{this.deployAltitude}} 
+                        <a href="/jumpers/{{../jumper._id}}/jumps/{{this._id}}">{{this.name}} Info</a>
+
         </ul>
         {{/each}}
     </div>

@@ -23,6 +23,22 @@ router.get('/', (request, response) => {
 
 });
 
-
+//show route
+router.get('/:jumpId', (request, response) => {
+    const jumperId = request.params.jumperId
+    const jumpId = request.params.jumpId
+    
+    JumperModel.findById(jumperId)
+        .then((jumper) => {
+            const jump = jumper.jumps.id(jumpId)
+            response.render('jumps/show',{
+                jump: jump,
+                jumperId: jumperId,
+            })
+        })
+        .catch((error) => {
+            console.log(error)
+        })
+})
 
 module.exports = router;
