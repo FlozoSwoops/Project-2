@@ -25,7 +25,7 @@ router.get('/', (request, response) => {
 router.get('/new', (request,response) => {
     response.render('jumpers/new')
 })
-
+//create
 router.post('/', (request,respose) => {
     const newJumper = request.body
 
@@ -38,5 +38,8 @@ router.post('/', (request,respose) => {
             console.log(error)
         })
 })
+
+//edit
+
 
 module.exports = router;
