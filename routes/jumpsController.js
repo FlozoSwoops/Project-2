@@ -31,6 +31,21 @@ router.get('/new', (request, response) => {
     })
 })
 
+//create
+router.post('/', (request, response) => {
+    const jumperId = request.params.jumperId
+    const jumpId = request.params.jumpId
+
+    JumperModel.findById(jumperId)
+        .then ((jumper) =>{
+            jumper.jumps.push(newJump)
+            return jumper.save
+        })
+        .then((jumper) => {
+            response.redirect(`/jumpers/${jumperId}/jumps`)
+        })
+})
+
 //show route
 router.get('/:jumpId', (request, response) => {
     const jumperId = request.params.jumperId
