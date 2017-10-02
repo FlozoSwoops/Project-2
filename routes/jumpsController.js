@@ -23,6 +23,14 @@ router.get('/', (request, response) => {
 
 });
 
+//new route
+router.get('/new', (request, response) => {
+    const jumperId = request.params.jumperId
+    response.render('jumps/new', {
+        jumperId: jumperId
+    })
+})
+
 //show route
 router.get('/:jumpId', (request, response) => {
     const jumperId = request.params.jumperId
