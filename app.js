@@ -8,8 +8,7 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 
 var index = require('./routes/index');
-var jumps = require('./routes/jumpsController');
-var jumpers = require('./routes/jumpersController');
+
 var app = express();
 const methodOverride = require('method-override')
 // db setup
