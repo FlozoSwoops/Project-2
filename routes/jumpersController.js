@@ -38,6 +38,37 @@ router.post('/', (request,respose) => {
             console.log(error)
         })
 })
+//edit
+router.get('/:jumperId/edit', (request, response) => {
+    
+        const jumperId = request.params.jumperId
+    
+        JumperModel.findById(jumperId)
+            .then((jumper) => {
+                response.render('jumpers/edit', {
+                    jumper: jumper
+                })
+            })
+            .catch((error) => {
+                console.log(error)
+            })
+    })
+//update
+router.put('/:jumperId', (request, response) => {
+    
+        const jumperId = request.params.jumperId
+    
+        const updatedJumper = request.body
+        JumperModel.findByIdAndUpdate(jumperId, updatedJumper, { new: true })
+        .then(() => {
+            response.render('jumpers/show', {
+                jumper: jumper
+            })
+        })
+        .catch((error) => {
+            console.log(error)
+        })
+})
 //show
 router.get('/:jumperId', (request,response) => {
     const jumperId = request.params.jumperId
@@ -53,7 +84,6 @@ router.get('/:jumperId', (request,response) => {
         })
 })
 
-//edit
 
 
 module.exports = router;
