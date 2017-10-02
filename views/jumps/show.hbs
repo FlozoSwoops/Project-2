@@ -1,1 +1,18 @@
-
+<div>
+    <h1>{{jumper.name}}</h1>
+    
+    <div>Number: {{jump.jumpNumber}}</div>
+    <div>Name: {{jump.jumpName}}</div>
+    <div>Exit Altitude: {{jump.exitAltitude}}</div>
+    <div>Deploy Altitude: {{jump.deployAltitude}}</div>
+    <div>Accuracy: {{jump.accuracy}}</div>
+    <div>Improvement Points: {{jump.notes}}</div>
+    
+    <div>
+       <button><a href="/jumpers">Back to jumpers</a></button>
+    </div>
+    <div>
+        <a href="/jumpers/{{jumper._id}}/edit">Edit</a>
+    </div>
+   
+</div>
