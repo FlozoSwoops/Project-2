@@ -44,7 +44,7 @@ const jumpersController = require('./routes/jumpersController')
 app.use('/jumpers', jumpersController)
 
 const jumpsController = require('./routes/jumpsController')
-app.use('/jumps', jumpsController)
+app.use('/jumpers/:jumperId/jumps', jumpsController)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

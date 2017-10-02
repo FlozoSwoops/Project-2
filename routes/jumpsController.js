@@ -14,7 +14,7 @@ router.get('/', (request, response) => {
     JumperModel.findById(jumperId)
         .then((jumper) => {
             response.render('jumps/index', {
-                jumps: jumps
+                jumper: jumper
             })
         })
         .catch((error) => {
