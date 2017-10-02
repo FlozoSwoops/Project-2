@@ -11,7 +11,9 @@ var index = require('./routes/index');
 var jumps = require('./routes/jumpsController');
 var jumpers = require('./routes/jumpersController');
 var app = express();
+const methodOverride = require('method-override')
 // db setup
+mongoose.Promise = global.Promise
 mongoose.connect(process.env.MONGODB_URI, {useMongoClient: true});
 
 const db = mongoose.connection
@@ -33,7 +35,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
+app.use(methodOverride('_method'))
 app.use('/', index);
 
 

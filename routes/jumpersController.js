@@ -21,9 +21,22 @@ router.get('/', (request, response) => {
         })
 
 });
-
+// Route to new Form
 router.get('/new', (request,response) => {
     response.render('jumpers/new')
+})
+
+router.post('/', (request,respose) => {
+    const newJumper = request.body
+
+    JumperModel.create(newJumper)
+        .then(() => {
+            response.redirect('/jumpers')
+            console.log(newJumper)
+        })
+        .catch((error) => {
+            console.log(error)
+        })
 })
 
 module.exports = router;
