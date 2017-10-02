@@ -1,0 +1,36 @@
+<form action="/jumpers/{{jumperId}}/jumps/{{snowboard._id}}?_method=PUT" method="PUT">
+    <div class="form-group">
+        <label for="jumpName">Name</label>
+        <input type="text" name="jumpName" placeholder="Enter Name">
+    </div>
+    <div class="form-group">
+        <label for="jumpNumber">Jump Number</label>
+        <input type="number" name="jumpNumber" placeholder="Jump Number">
+    </div>
+    <div class="form-group">
+        <label for="jumpType">Licence</label>
+        <select class="form-control" id="exampleFormControlSelect1" name="licence">
+      <option>RW</option>
+      <option>Freefly</option>
+      <option>Wingsuit</option>
+      <option>Hybrid</option>
+    </select>
+    </div>
+    <div class="form-group">
+        <label for="exitAltitude">Exit Alt</label>
+        <input type="number" name="exitAltitude" placeholder="Exit Altitutde">
+    </div>
+    <div class="form-group">
+        <label for="deployAltitude">Deploy Alt</label>
+        <input type="number" name="deployAltitude" placeholder="Deploy Altitutde">
+    </div>
+    <div class="form-group">
+        <label for="accuracy">Distance From Target</label>
+        <input type="number" name="accuracy" placeholder="Distance From Target">
+    </div>
+    <div class="form-group">
+        <label for="notes">Improvement Points</label>
+        <input type="text" name="notes" placeholder="Notes">
+    </div>
+    <button type="submit" class="btn btn-primary" value="Edit">Submit</button>
+</form>

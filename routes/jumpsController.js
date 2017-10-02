@@ -34,7 +34,7 @@ router.get('/new', (request, response) => {
 //create
 router.post('/', (request, response) => {
     const jumperId = request.params.jumperId
-    const jumpId = request.params.jumpId
+    const newJump = request.body
 
     JumperModel.findById(jumperId)
         .then ((jumper) =>{
@@ -45,6 +45,27 @@ router.post('/', (request, response) => {
             response.redirect(`/jumpers/${jumperId}/jumps`)
         })
 })
+
+//edit
+router.get('/:snowboardId/edit', (request, response) => {
+    
+        const jumperId = request.params.jumperId
+    
+        const snowboardId = request.params.snowboardId
+    
+        JumperModel.findById(jumperId)
+            .then((jumper) => {
+                const snowboard = jumper.jumps.id(snowboardId)
+    
+                response.render('jumps/edit', {
+                    jump: snowboard,
+                    jumperId: jumperId
+                })
+            })
+            .catch((error) => {
+                console.log(error)
+            })
+    })
 
 //show route
 router.get('/:jumpId', (request, response) => {
