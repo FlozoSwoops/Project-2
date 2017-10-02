@@ -38,6 +38,20 @@ router.post('/', (request,respose) => {
             console.log(error)
         })
 })
+//show
+router.get('/:jumperId', (request,response) => {
+    const jumperId = request.params.jumperId
+
+    JumperModel.findById(jumperId)
+        .then((jumper) => {
+            response.render('jumpers/show', {
+                jumper: jumper
+            })
+        })
+        .catch((error) => {
+            console.log(error)
+        })
+})
 
 //edit
 
