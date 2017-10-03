@@ -24,11 +24,8 @@ router.get('/', (request, response) => {
 });
 
 //new route
-router.get('/new', (request, response) => {
-    const jumperId = request.params.jumperId
-    response.render('jumps/new', {
-        jumperId: jumperId
-    })
+router.get('/new', (request,response) => {
+    response.render('jumpers/new')
 })
 
 //create
@@ -106,21 +103,5 @@ router.get('/:jumpId', (request, response) => {
         })
 })
 
-router.get('/:jumpId/delete', (request, response) => {
-    
-        const jumperId = request.params.jumperId
-        
-        const jumpId = request.params.jumpId
-    
-        JumperModel.findById(jumperId)
-            .then((jumper) => {
-                const jump = jumper.jumps.id(jumpId).remove()
-    
-                return jumper.save()
-            })
-            .then(() => {
-                response.redirect(`/jumpers/${jumperId}/jumps`)
-            })
-    })
 
 module.exports = router;

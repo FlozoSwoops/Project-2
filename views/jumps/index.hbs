@@ -8,11 +8,11 @@
         {{#each jumper.jumps}}
         <ul>
             <li> {{this.jumpNumber}} - {{this.jumpName}} - {{this.exitAltitude}} - {{this.deployAltitude}}
-                <a href="/jumpers/{{../jumper._id}}/jumps/{{this._id}}">{{this.name}} Info</a>
+                <a href="/jumpers/{{jumper._id}}/jumps/{{this._id}}">{{this.name}} Info</a>
 
         </ul>
         {{/each}}
     </div>
-    <button><a href="jumpers/{{jumper._id}}/jumps/new">Create Jump</a></button>
+    <button><a href="/jumpers/{{jumper._id}}/jumps/new">Create Jump</a></button>
 
 </div>

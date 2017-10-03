@@ -26,14 +26,10 @@ router.get('/new', (request,response) => {
     response.render('jumpers/new')
 })
 //create
-router.post('/', (request,respose) => {
+router.post('/', (request,response) => {
     const newJumper = request.body
 
     JumperModel.create(newJumper)
-        .then(() => {
-            jumpers.push(newJumper)
-            return jumpers.save()
-        })
         .then(() => {
             response.redirect('/jumpers')
         })
