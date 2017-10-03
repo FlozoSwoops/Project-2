@@ -65,7 +65,6 @@ router.put('/:jumperId', (request, response) => {
         JumperModel.findByIdAndUpdate(jumperId, updatedJumper, { new: true })
         .then(() => {
             response.render('jumpers/show', {
-                jumper: jumper
             })
         })
         .catch((error) => {
@@ -86,16 +85,12 @@ router.get('/:jumperId', (request,response) => {
             console.log(error)
         })
 })
-
+//delete
 router.get('/:jumperId/delete', (request, response) => {
     
         const jumperId = request.params.jumperId
     
-        JumperModel.findById(jumperId)
-            .then(() => {
-               const jumper = jumper.id(jumperId).remove() 
-               return jumper.save
-            })
+        JumperModel.findByIdAndRemove(jumperId)
             .then(() => {
                 response.redirect('/jumpers')
             })
