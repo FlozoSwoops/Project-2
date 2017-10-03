@@ -53,7 +53,7 @@ const JumpSchema = new Schema ({
     notes: {
         type: String,
         required: false,
-    }
+    },
 })
 
 const JumperSchema = new Schema ({

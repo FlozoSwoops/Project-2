@@ -8,7 +8,7 @@ Jumpers can keep track of overall totals, as well as for each indivdual jump bas
 
 Technologies Used
 
-HTML 5
+HTML5
 CSS
 Bootstrap
 Node.js

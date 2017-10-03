@@ -73,6 +73,7 @@ router.get('/:jumperId', (request,response) => {
 
     JumperModel.findById(jumperId)
         .then((jumper) => {
+            console.log(jumper)
             response.render('jumpers/show', {
                 jumper: jumper
             })

@@ -23,7 +23,7 @@ const JumperModel = Schema.JumperModel;
 
 
 //creating jump info
-const chileanWay = new JumpModel({jumpNumber: "89", jumpName:'Chilean Round', jumpType:'Hybrid', exitAltitude: "14000", deployAltitude: "3500", accuracy: "7", notes: 'Zoo Dive'})
+const chileanWay = new JumpModel({jumpNumber: "89", jumpName:'Chilean Round', jumpType:'Hybrid', exitAltitude: "14000", deployAltitude: "3500", accuracy: "7", notes: 'Zoo Dive', video:'https://www.youtube.com/embed/plQudjXW3HY'})
 const wingsuitRodeo = new JumpModel({jumpNumber: "99", jumpName:'Wingsuit Rodeo', jumpType:'Wingsuit', exitAltitude: "14000" , deployAltitude: "3500", accuracy: "0", notes:'So much gnar'})
 const eclipseJump = new JumpModel({jumpNumber: "129", jumpName:'Eclipse Jump', jumpType:'Highpull', exitAltitude: "14000", deployAltitude: "3500", accuracy: "10", notes: 'Woo Hoo'})
 // assign each to a variable array
