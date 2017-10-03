@@ -25,7 +25,7 @@ router.get('/', (request, response) => {
 
 //new route
 router.get('/new', (request,response) => {
-    response.render('jumpers/new')
+    response.render('jumps/new')
 })
 
 //create
