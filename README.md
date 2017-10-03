@@ -16,6 +16,34 @@ Express.js
 MongoDB.js
 
 
+ERD
+DropZone
+id:
+Dropzone Name:
+Aircraft
+GearStore:
+ |
+ |
+ |
+/|\
+Jumpers
+Total Jumps:
+Licence
+Freefall Time:
+ |
+ |
+ |
+/|\
+Jumps
+ID:
+exit Alt:
+pull Alt: 
+accuracy: 
+notes:
+
+
+
+
 
 [Wire Frame] (https://gomockingbird.com/projects/ch4ds6x/cxgNNP)
 
