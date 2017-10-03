@@ -21,7 +21,7 @@ const DropzoneSchema = new Schema({
 
 const JumpSchema = new Schema ({
     jumpNumber: {
-        type: Number,
+        type: String,
         required: true,
     },
 
@@ -36,17 +36,17 @@ const JumpSchema = new Schema ({
     },
 
     exitAltitude: {
-        type: Number,
+        type: String,
         require: true,
     },
 
     deployAltitude: {
-        type: Number,
+        type: String,
         require: true
     },
 
     accuracy : {
-        type: Number,
+        type: String,
         require: false
     },
 
@@ -62,16 +62,16 @@ const JumperSchema = new Schema ({
         required: true,
     },
     totalJumps: {
-       type: Number,
-       required: true
+       type: String,
+       required: false
     },
     licence: {
         type: String,
         required: false
     },
     freefallTime: {
-        type: Number,
-        required: true
+        type: String,
+        required: false
     },
     jumps: [JumpSchema]
 })

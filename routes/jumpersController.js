@@ -31,8 +31,11 @@ router.post('/', (request,respose) => {
 
     JumperModel.create(newJumper)
         .then(() => {
+            jumpers.push(newJumper)
+            return jumpers.save()
+        })
+        .then(() => {
             response.redirect('/jumpers')
-            console.log(newJumper)
         })
         .catch((error) => {
             console.log(error)
@@ -83,6 +86,24 @@ router.get('/:jumperId', (request,response) => {
             console.log(error)
         })
 })
+
+router.get('/:jumperId/delete', (request, response) => {
+    
+        const jumperId = request.params.jumperId
+    
+        JumperModel.findById(jumperId)
+            .then(() => {
+               const jumper = jumper.id(jumperId).remove() 
+               return jumper.save
+            })
+            .then(() => {
+                response.redirect('/jumpers')
+            })
+            .catch((error) => {
+                console.log(error)
+            })
+    })
+    
 
 
 
