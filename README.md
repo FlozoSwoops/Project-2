@@ -45,11 +45,11 @@ notes:
 
 
 
-[Wire Frame] (https://gomockingbird.com/projects/ch4ds6x/cxgNNP)
+[Wire Frame](https://gomockingbird.com/projects/ch4ds6x/cxgNNP)
 
-[Trello] (https://trello.com/b/dQA3xkng/wdi-project-two)
+[Trello](https://trello.com/b/dQA3xkng/wdi-project-two)
 
-[Herokus] (https://serene-savannah-52015.herokuapp.com/jumpers)
+[Herokus](https://serene-savannah-52015.herokuapp.com/)
 
 
 Features to be added
