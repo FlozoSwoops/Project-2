@@ -14,7 +14,7 @@ align-content: center;
 }
 
 a {
-  color: #00B7FF;
+  color: rgba(236, 240, 241,1.0);
 }
 iframe{
   position: center;
