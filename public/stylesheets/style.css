@@ -1,11 +1,29 @@
 body {
-  padding: 50px;
+  margin: auto;
+  padding: 0;
+  width: 100%;
+  text-align: center;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-image: url(http://i.huffpost.com/gen/1507201/images/o-SKYDIVER-facebook.jpg);
+  /* background-image: url(http://i.huffpost.com/gen/1507201/images/o-SKYDIVER-facebook.jpg); */
   background-size: 100%;
-  color: white;
+  background-color:rgba(41, 128, 185,1.0);
+  color:rgba(149, 165, 166,1.0);
+display: flex;
+flex-direction: column;
+align-content: center;
 }
 
 a {
   color: #00B7FF;
+}
+iframe{
+  position: center;
+}
+
+ul {
+  list-style-type: none;
+}
+
+button {
+  background-color: rgba(149, 165, 166,1.0)
 }

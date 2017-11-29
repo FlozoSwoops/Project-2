@@ -3,15 +3,15 @@
     <h1>Spaceland Sport Jumpers</h1>
 
     <div>
-        <button><a href="jumpers/new">Add New Jumper</a></button>
+        <button class="waves-effect waves-light btn"><a href="jumpers/new">Add New Jumper</a></button>
     </div>
     <div>
-        <ol>
+        <ul>
         {{#each jumpers}}
         
        <li> {{this.name}}  -  {{this.totalJumps}} 
         <a href="/jumpers/{{this._id}}">{{this.name}} Info</a>
         {{/each}}
-        </ol>
+        </ul>
     </div>
 </div>

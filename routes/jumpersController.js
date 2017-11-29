@@ -60,7 +60,7 @@ router.put('/:jumperId', (request, response) => {
         const updatedJumper = request.body
         JumperModel.findByIdAndUpdate(jumperId, updatedJumper, { new: true })
         .then(() => {
-            response.render('jumpers/show', {
+            response.render('jumpers', {
             })
         })
         .catch((error) => {

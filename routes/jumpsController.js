@@ -25,7 +25,12 @@ router.get('/', (request, response) => {
 
 //new route
 router.get('/new', (request,response) => {
-    response.render('jumps/new')
+    console.log(request.params)
+    const jumperId = request.params.jumperId
+
+    response.render('jumps/new', {
+        jumperId: jumperId
+    })
 })
 
 //create
@@ -36,10 +41,14 @@ router.post('/', (request, response) => {
     JumperModel.findById(jumperId)
         .then((jumper) => {
             jumper.jumps.push(newJump)
-            return jumper.save
+            return jumper.save()
         })
         .then((jumper) => {
+            console.log(jumperId)
             response.redirect(`/jumpers/${jumperId}/jumps`)
+        })
+        .catch((error) => {
+            console.log(error)
         })
 })
 
